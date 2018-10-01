@@ -2,7 +2,12 @@ pipeline {
 
   agent any
   
+  options {
+    buildDiscarder(logRotator(numToKeepStr: '4'))
+  }
+  
   stages {
+    
     stage('List files in repo on Unix Slave') {
     
       when {
